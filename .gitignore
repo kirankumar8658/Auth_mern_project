@@ -1,0 +1,13 @@
+# myHospital .gitignore
+
+# Node
+node_modules/
+.env
+
+# Logs
+logs/
+*.log
+
+# Build
+dist/
+build/
