@@ -27,9 +27,7 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: function (origin, callback) {
-      // allow requests with no origin (like Postman or server-to-server)
-      if (!origin) return callback(null, true);
-
+      if (!origin) return callback(null, true); // allow Postman / server requests
       if (allowedOrigins.indexOf(origin) === -1) {
         const msg =
           "The CORS policy for this site does not allow access from the specified Origin.";
@@ -37,7 +35,7 @@ app.use(
       }
       return callback(null, true);
     },
-    credentials: true, // allow cookies or Authorization headers
+    credentials: true // allow cookies
   })
 );
 
