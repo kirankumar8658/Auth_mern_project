@@ -15,7 +15,7 @@ export const AppContextProvider = ({ children }) => {
   // Check if user is authenticated
   const getAuthState = async () => {
     try {
-      const { data } = await axios.get(backendUrl+ '/api/auth/is-auth');
+      const { data } = await axios.get("https://auth-mern-backend-927v.onrender.com/api/auth/is-auth");
       if (data.success) {
         setIsLoggedin(true);
         getUserData();
