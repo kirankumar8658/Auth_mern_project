@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
+const connectDB = async ()=>{
 
-const connectDB=async()=>{
-
-    // mongoose.connection.on('connect',()=>console.log("database connected"))
-    await mongoose.connect(process.env.MONGO_URL);
+    mongoose.connection.on('connected', ()=> console.log("Database Connected"));
+  
+    await mongoose.connect(process.env.MONGO_URL)
 }
-export default connectDB;
+export default connectDB
