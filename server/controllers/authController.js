@@ -27,8 +27,8 @@ export const register = async (req, res) => {
     });
     res.cookie("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      secure: true,
+      sameSite:"none",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
     //SENDING WELCOME EMAIL
@@ -67,8 +67,8 @@ export const login = async (req, res) => {
     });
     res.cookie("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      secure: true,
+      sameSite:"none",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
     return res.json({ success: true, message: "User  logged in", data: user });
@@ -79,10 +79,11 @@ export const login = async (req, res) => {
 
 export const logout = async (req, res) => {
   try {
-    res.clearCookie("token", {
+    res.cookie("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      secure: true,
+      sameSite:"none",
+      maxAge: 7 * 24 * 60 * 60 * 1000,
     });
     return res.json({ success: true, message: "User  logged out" });
   } catch (err) {
