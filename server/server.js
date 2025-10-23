@@ -11,7 +11,7 @@ const port = process.env.PORT || 4000
 connectDB();
 
 app.use(cors({
-  origin: ['http://localhost:5173'], // Your frontend deployed URL
+  origin: ['https://auth-mern-frontend-hw7f.onrender.com'], // Your frontend deployed URL
   credentials: true,
 }));
 
