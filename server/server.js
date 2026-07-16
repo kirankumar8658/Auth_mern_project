@@ -10,11 +10,11 @@ import userRouter from "./routes/userRoutes.js";
 
 const app = express();
 
-// Use Render PORT or fallback
+
 const PORT = process.env.PORT || 5000;
 
 // Connect to MongoDB
-const port = process.env.PORT|| 3000;
+
 connectDB()
   .then(() => console.log("✅ Connected to MongoDB"))
   .catch((err) => console.log("❌ MongoDB error:", err));
